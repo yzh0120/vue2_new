@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+  },
+  "vueCompilerOptions": {
+    "experimentalShamefullySupportOptionsApi": false
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

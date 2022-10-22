@@ -1,0 +1,15 @@
+$--color-primary: #409eff !default;
+$--color-whites: #ffffff !default;
+$--color-blacks: #000000 !default;
+$--bg-topBar: #ffffff;
+$--bg-topBarColor: #606266;
+
+
+
+:root {
+	--color-primary: #{$--color-primary};
+	--color-whites: #{$--color-whites};
+	--color-blacks: #{$--color-blacks};
+	--bg-topBar: #{$--bg-topBar};
+	--bg-topBarColor: #{$--bg-topBarColor};
+}

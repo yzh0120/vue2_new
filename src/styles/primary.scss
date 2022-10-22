@@ -1,0 +1,73 @@
+/*  
+    elementui主题， 如何动态设置scss变量的值？
+	https://www.h5w3.com/104106.html
+	
+	导航栏 */
+$menuBg: #001529; //菜单背景色
+$submenuBg: #000c17;//二级菜单的背景颜色
+
+$textcolor: hsla(0,0%,100%,.65); //默认字体颜色
+$activeTextColor: #ffffff;//菜单选中的字体颜色
+
+$hoverColor: #409eff;//鼠标移上去的字体颜色
+$activeBgColor: #409eff;//菜单选中的背景颜色
+
+
+.sidebar-container {
+	background-color: $menuBg !important; //侧边栏背景色
+}
+.el-menu-item {
+	//权重最低的 子叶选项会被非一级的某行菜单栏 样式覆盖
+	background-color: $menuBg !important; //背景颜色
+	color: $textcolor; // 默认字体颜色
+
+	&:hover {
+		color: $hoverColor !important; //字体颜色
+		i {
+			color: $hoverColor !important; //字体颜色
+		}
+	}
+}
+.el-submenu__title {
+	//权重最低的 母目录
+	background-color: $menuBg !important; //背景颜色
+	color: $textcolor; // 默认字体颜色
+
+	&:hover {
+		color: $hoverColor !important; //字体颜色
+		i {
+			color: $hoverColor !important; //字体颜色
+		}
+	}
+}
+
+.el-submenu .el-menu-item {
+	//非一级的某行菜单栏
+	background-color: $submenuBg !important; //背景色
+
+	&:hover {
+		color: $hoverColor !important; //字体颜色
+		i {
+			color: $hoverColor !important; //字体颜色
+		}
+	}
+}
+
+.el-menu li.is-active.el-menu-item {
+	// 某行激活的菜单栏            多选择器是为了权重
+	color: $activeTextColor !important; // 字体激活颜色
+	background-color: $activeBgColor !important; // 背景激活颜色
+	&:hover {
+		i {
+			color: $activeTextColor !important; //字体颜色
+		}
+	}
+}
+
+.is-active > .el-submenu__title {
+	//当点击了子菜单时的父菜单
+	color: $activeTextColor !important; //的文本颜色
+	i {
+		color: $activeTextColor !important;
+	}
+}

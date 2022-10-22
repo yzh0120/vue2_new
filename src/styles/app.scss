@@ -1,0 +1,131 @@
+/* 外边距、内边距全局样式
+------------------------------- */
+@for $i from 5 through 35 {
+  .mt#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .mr#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .mb#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .ml#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .pt#{$i} {
+    padding-top: #{$i}px !important;
+  }
+  .pr#{$i} {
+    padding-right: #{$i}px !important;
+  }
+  .pb#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+  .pl#{$i} {
+    padding-left: #{$i}px !important;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "微软雅黑";
+}
+
+html,
+body,
+#app,
+.el-container,
+.el-main {
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  font-size: 14px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.center,
+.text-center {
+  text-align: center;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.layout-container {
+  width: 100%;
+  height: 100%;
+  .layout-main {
+    padding: 0 !important;
+    overflow: hidden;
+    width: 100%;
+    background-color: #f8f8f8;
+  }
+  .el-scrollbar {
+    width: 100%;
+  }
+}
+
+.flex-grow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.projectCode {
+  text-align: right;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pager {
+  margin-top: 15px;
+}
+
+.treeselect {
+  .el-form-item__content {
+    line-height: 30px !important;
+  }
+  .vue-treeselect__control {
+    height: 30px;
+  }
+  .vue-treeselect__placeholder,
+  .vue-treeselect__single-value {
+    line-height: 30px;
+  }
+}
+
+
+.fixed {
+  width: 40px;
+  height: 40px;
+  // border-radius: 50%;
+  // background-color: rgba(255, 255, 255, 0.9);
+  // color: #409eff;
+  // box-shadow: 0 0 10px #999;
+  background-color: #409eff;
+  color: #ffffff;
+  position: fixed;
+  right: 0px;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.fs12 {
+  font-size: 12px;
+}
