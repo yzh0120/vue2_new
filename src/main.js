@@ -68,6 +68,19 @@ Vue.component("svgIcon", svgIcon)
 import basePager from '@/components/base-pager'
 Vue.component("pager", basePager)
 
+import panel from '@/components/panel'
+Vue.component("panel", panel)
+
+//文件
+import fileList from '@/components/file/fileList'
+Vue.component("fileList", fileList)
+
+import fileListShow from '@/components/file/fileListShow'
+Vue.component("fileListShow", fileListShow)
+
+import oneFile from '@/components/file/oneFile'
+Vue.component("oneFile", oneFile)
+
 import '@/styles/index.scss';
 
 new Vue({

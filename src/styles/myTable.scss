@@ -1,0 +1,54 @@
+//实现table细边框,设置如下css：
+.table{
+	border:0.5px solid #ddd;
+	border-spacing: 0;
+	border-collapse:collapse;
+}
+//table表格宽度固定，同时td内容过长也不会被撑开，设置如下css：
+.table{
+	table-layout:fixed;
+	word-break:break-all;
+	background-color: white;
+}
+.table td{
+	border:0.5px solid #ddd;
+	padding: 8px;
+	width:1000000px;
+	// text-align: left;
+    font-size: 14px;
+	text-align: center;
+}
+
+
+
+
+
+//th背景 td:nth-child(odd)
+.table.keyvalue > tbody  tr > td:nth-child(odd){
+  background-color: #f9f9f9;
+}
+.table.row > tbody  tr:nth-child(odd){
+  background-color: rgb(235, 238, 245);
+}
+
+//文字居中
+// .table.center > tbody  tr > td{
+  
+// }
+/* 
+示例:
+//整行悬浮背景色
+// .table > tbody  tr:hover > th,
+// .table > tbody > tr:hover > td{
+//   background-color: #e8e8e8;
+// }
+			  
+			  
+			  
+			  */
+			  
+ 
+
+
+
+

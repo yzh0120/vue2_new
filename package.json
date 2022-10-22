@@ -10,6 +10,7 @@
     "build:prodtest": "vue-cli-service build --mode productiontest"
   },
   "dependencies": {
+    "element-resize-detector": "^1.2.4",
     "@riophae/vue-treeselect": "^0.4.0",
     "axios": "^0.21.4",
     "core-js": "^3.6.5",

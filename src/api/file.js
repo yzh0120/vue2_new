@@ -5,7 +5,7 @@
  * @FilePath: \oaweb\src\api\file.js
  * 
  */
-import oarequest from "@/utils/oarequest";
+import oarequest from "@/utils/axiosFileRequest";
 import axios from 'axios';
 import {
   getCookie
@@ -16,6 +16,28 @@ import {
   MessageBox
 } from 'element-ui';
 
+
+/**
+ * 预览
+ * @param url
+ * @param title
+ * @returns {Promise}
+ */
+export function look(params = {}) {
+  let url = params.fileUrl + params.filePath;
+  if (/.xls|.xlsx|.doc|.docx|.ppt|.pptx/g.test(params.filePath)) {
+
+    var ele = `
+                   <iframe src='https://view.officeapps.live.com/op/view.aspx?src=${url}' width='100%' height='100%' frameborder='1'>
+                   </iframe>
+               `;
+    var newwindow = window.open(url, "_blank", '');
+    newwindow.document.write(ele);
+  } else {
+    window.open(url)
+  }
+}
+
 /**
  * 封装download下载文件流
  * @param url
@@ -23,55 +45,13 @@ import {
  * @returns {Promise}
  */
 
-export function download(params = {}, type, baseUrl = "") {
-  let baseURL = baseUrl || process.env.VUE_APP_BASE_API;
+export function download(params = {}, url, baseUrl = "") {
+  let baseURL = baseUrl || process.env.VUE_APP_BASE_API_FILE;
   let headers = {
     'Authorization': "Bearer " + getCookie("token")
   }
 
-  // if (!type) {
-  //   if (/.xls|.xlsx|.doc|.docx|.ppt|.pptx/g.test(params.fileUrl)) {
-  //     var ele = `
-  //                  <iframe src='https://view.officeapps.live.com/op/view.aspx?src=${params.fileUrl}' width='100%' height='100%' frameborder='1'>
-  //                  </iframe>
-  //              `;
-  //     var newwindow = window.open(params.fileUrl, "_blank", '');
-  //     newwindow.document.write(ele);
-  //   } else {
-  //     window.open(params.fileUrl)
-  //   }
-
-  //   return;
-  // }
-  if (!type) {
-    // return location.href = params.fileUrl
-    return window.open(params.fileUrl)
-  }
-
-  let url = "" //"/v1/base/file/download"
-  if (type == "batchImportHistory") {
-    url = "/v1/data/batchImportHistory/download"
-  } else if (type == "blacklist") {
-    url = "/v1/data/blacklist/download"
-  } else if (type == "riskmargin") {
-    url = "/v1/performance/riskmargin/download"
-  } else if (type == "performanceroyalty") {
-    url = "/v1/performance/performanceroyalty/download"
-  } else if (type == "riskmarginD") {
-    url = "/v1/performance/riskmargin/downloadItems"
-  } else if (type == "performanceroyaltyD") {
-    url = "/v1/performance/performanceroyalty/downloadItems"
-  } else if (type == "bill") {
-    url = "/v1/data/apibill/exportDetail"
-  } else if (type == "projectMeetingDownload") {
-    url = "/projectMeeting/download"
-  } else if (type == "filedownload") {
-    url = "/v1/base/file/download"
-  } else if (type == "bankCommondownload") { // 下载回传保函扫描件
-    url = "/bh/bankCommon/download"
-  } else {
-    url = type
-  }
+  // let url = type
   let msg = Message({
     message: "正在下载文件，请稍等",
     type: 'warning',
@@ -114,9 +94,7 @@ export function download(params = {}, type, baseUrl = "") {
           // 兼容blob下载出错json提示
           return;
         }
-        // else {
-        //   console.log("没有转JSON")
-        // }
+
 
         let blob = new Blob([response.data]);
         let objectUrl = URL.createObjectURL(blob);
