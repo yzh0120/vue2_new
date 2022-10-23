@@ -4,12 +4,15 @@ const state = {
 }
 
 const mutations = {
+  //尾部添加路由
   addView(state, data) {
     state.tagsViewList.push(data);
   },
+  //用新数组替换路由 
   setView(state, data) {
     state.tagsViewList = data
   },
+  //删除指定路由
   delVisitedView(state, data) {
     state.tagsViewList.map((v, i) => {
       if (v.path == data.path) {
@@ -17,6 +20,7 @@ const mutations = {
       }
     })
   },
+  //删除其他路由
   delOtherView(state, data) {
     state.tagsViewList = state.tagsViewList.filter(v => {
       if (v.meta.isAffix || v.path == data.path) {
@@ -26,6 +30,7 @@ const mutations = {
       }
     })
   },
+  //删除所有路由
   delAllView(state, data) {
     state.tagsViewList = state.tagsViewList.filter(v => {
       if (v.meta.isAffix) {
@@ -35,6 +40,7 @@ const mutations = {
       }
     })
   },
+  //设置当前路由
   setCurrentTagView(state, data) {
     if (data) {
       state.currentTagView = data;
