@@ -10,6 +10,7 @@ let layout = () => import("@/layout/index.vue")
 import baseForm from "./modules/1-base-form.js"
 import fastCopy from "./modules/3-fastCopy.js"
 import svgIcon from "./modules/7-svgIcon.js"
+import elementUi from "./modules/11-element-ui.js"
 import {
   status
 } from "./modules/status.js"
@@ -48,6 +49,7 @@ const routes = [{
   baseForm, //表单
   fastCopy,
   svgIcon, //
+  elementUi, //
   ...status, //状态和登录页
 ]
 
