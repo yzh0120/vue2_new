@@ -45,10 +45,11 @@ export function look(params = {}) {
  * @returns {Promise}
  */
 
-export function download(params = {}, url, baseUrl = "") {
-  let baseURL = baseUrl || process.env.VUE_APP_BASE_API_FILE;
+export function download(path, params = {}, baseUrl = "") {
+  let baseURL = baseUrl || process.env.VUE_APP_BASE_API_FILE; //实际使用需要修改
   let headers = {
-    'Authorization': "Bearer " + getCookie("token")
+    // 'Authorization': "Bearer " + getCookie("token")
+    'Authorization': getCookie("fileToken") //实际使用需要修改  还有axiosFileRequest.js 完全可以不需要
   }
 
   // let url = type
@@ -61,7 +62,7 @@ export function download(params = {}, url, baseUrl = "") {
   return new Promise((resolve, reject) => {
     axios({
         method: 'get',
-        url: url,
+        url: path,
         baseURL: baseURL,
         params: params,
         responseType: 'blob',

@@ -1,7 +1,7 @@
 <template>
-  <page>
+  <div>
 
-  </page>
+  </div>
 </template>
 
 <script>

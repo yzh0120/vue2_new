@@ -20,7 +20,8 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     config.headers = { //配置请求token
-      "Authorization": getCookie("token") || ""
+      // "Authorization": getCookie("token") || ""
+      "Authorization": getCookie("fileToken") || "" //实际使用需要修改
     }
     return config;
   },

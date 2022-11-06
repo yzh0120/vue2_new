@@ -1,18 +1,15 @@
 <template>
   <page>
     <div style="height: 1000px">
-      <el-tabs
-        ref="navTabs"
-        class="average"
-        @tab-click="handleClick"
-        type="border-card"
-      >
+      <el-tabs ref="navTabs" class="average" @tab-click="handleClick" type="border-card">
+        <!-- 悬浮下拉框 -->
         <div class="linkNav" ref="link" @click="linkNavFn">
           <div class="link" style="background-color: #008000"></div>
           <div class="link" style="background-color: yellowgreen"></div>
           <div class="link" style="background-color: #008000"></div>
           <div class="link" style="background-color: yellowgreen"></div>
         </div>
+        <!-- tabs -->
         <el-tab-pane label="基本信息">基本信息</el-tab-pane>
         <el-tab-pane label="法律诉讼">法律诉讼</el-tab-pane>
         <el-tab-pane label="经营风险">经营风险</el-tab-pane>
@@ -50,6 +47,7 @@ export default {
         console.log(this.$refs.link.style.height, this.$refs.link.style.width);
       }, 600);
     },
+    // 设置移入移出事件
     set() {
       this.$nextTick(() => {
         //link移入事件
@@ -100,6 +98,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 </style>
 <style lang="scss" scoped>
 .linkNav {

@@ -2,22 +2,22 @@ let layout = () => import("@/layout/index.vue")
 let blank = () => import("@/views/blank.vue") //二级菜单专属
 
 export default {
-  path: '/fastCopy',
-  name: 'fastCopy',
+  path: '/fileUp',
+  name: 'fileUp',
   redirect: {
-    name: "fastCopy-base"
+    name: "fileUp-base"
   },
   component: layout,
   meta: {
-    title: '复制',
+    title: '文件上传',
     icon: "lcd",
   },
   children: [{
     path: 'base',
-    name: 'fastCopy-base',
-    component: () => import( /* webpackChunkName: "fastCopy-base" */ "@/views/3-fastCopy/1-tableAlert.vue"),
+    name: 'fileUp-base',
+    component: () => import( /* webpackChunkName: "fileUp-base" */ "@/views/4-fileUp/1-base.vue"),
     meta: {
-      title: '表单弹窗页面',
+      title: '文件上传',
       icon: "lcd",
     }
   }]

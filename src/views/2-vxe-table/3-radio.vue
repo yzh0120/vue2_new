@@ -1,16 +1,10 @@
 <template>
   <page>
-    <!-- 表单 -->
-    <base-form :data="formSearch">
-      <template #button>
-        <el-button type="primary" @click="search" native-type="submit">搜索</el-button>
-        <el-button type="primary" @click="addData">新增</el-button>
-      </template>
-    </base-form>
+
     <!-- 表格 -->
-    <vxe-grid v-bind="gridOptions" auto-resize>
+    <vxe-grid v-bind="gridOptions" auto-resize @radio-change="radioChange">
       <template #num_default="{ rowIndex }">
-        <span>{{(pagerData.pageNo - 1) * pagerData.pageSize + rowIndex + 1}}</span>
+        <span>{{ (pagerData.pageNo - 1) * pagerData.pageSize + rowIndex + 1 }}</span>
       </template>
       <template #do="{ row, rowIndex }">
         <el-button type="text" @click="tableEdit(row, rowIndex)">编辑</el-button>
@@ -64,6 +58,10 @@ export default {
             },
           },
           {
+            width: "60px",
+            type: "radio"
+          },
+          {
             field: "projectNo",
             title: "项目编号",
           },
@@ -105,10 +103,8 @@ export default {
     this.getData();
   },
   methods: {
-    //点击按钮搜索数据
-    search() {
-      this.pagerData.pageNo = 1
-      this.getData()
+    radioChange({ newValue }) {
+      console.log(newValue)
     },
     //获取数据
     getData() {
@@ -129,10 +125,6 @@ export default {
           this.$message.error(res.info);
         }
       });
-    },
-    //增加数据
-    addData() {
-      this.alert = true
     },
     //表格编辑
     tableEdit(row, index) {

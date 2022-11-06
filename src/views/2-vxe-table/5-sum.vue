@@ -1,16 +1,10 @@
 <template>
   <page>
-    <!-- 表单 -->
-    <base-form :data="formSearch">
-      <template #button>
-        <el-button type="primary" @click="search" native-type="submit">搜索</el-button>
-        <el-button type="primary" @click="addData">新增</el-button>
-      </template>
-    </base-form>
+
     <!-- 表格 -->
-    <vxe-grid v-bind="gridOptions" auto-resize>
+    <vxe-grid v-bind="gridOptions" auto-resize :footer-method="footerMethod" show-footer>
       <template #num_default="{ rowIndex }">
-        <span>{{(pagerData.pageNo - 1) * pagerData.pageSize + rowIndex + 1}}</span>
+        <span>{{ (pagerData.pageNo - 1) * pagerData.pageSize + rowIndex + 1 }}</span>
       </template>
       <template #do="{ row, rowIndex }">
         <el-button type="text" @click="tableEdit(row, rowIndex)">编辑</el-button>
@@ -105,10 +99,50 @@ export default {
     this.getData();
   },
   methods: {
-    //点击按钮搜索数据
-    search() {
-      this.pagerData.pageNo = 1
-      this.getData()
+    footerMethod(param) {
+      //重点
+      //columns 是 某一个列 其中  property 就是 列的字段
+      //data 是 后端返回的数组
+
+      const { columns, data } = param;
+      console.log(data, "columns, data")
+      const sums = [];
+      columns.forEach((column, index) => {
+        if (index === 0) {
+          //第一列一般是合计
+          sums[index] = "合计";
+          return;
+        }
+        // if (index === 1) {
+        //   //设置某一列是 固定
+        //   sums[index] = "";
+        //   return;
+        // }
+        const values = data.map(item => {//value就是整列的数据
+          if ((column.property == "projectNo" || column.property == "paidAmount") && item[column.property]) {//特殊操作
+            return Number(item[column.property])
+          }
+          else {
+            return NaN
+          }
+        });
+        //列里面有一个数据不是数字则显示N/A
+        //开始合计
+        if (values.every((value) => isNaN(value))) {
+          sums[index] = "";
+        } else {
+          sums[index] = values.reduce((prev, curr) => {
+            const value = Number(curr);
+            if (!isNaN(value)) {
+              return prev + curr; //prev + curr;
+            } else {
+              return prev;
+            }
+          }, 0);
+          sums[index] = sums[index].toFixed(2);
+        }
+      });
+      return [sums];
     },
     //获取数据
     getData() {
@@ -129,10 +163,6 @@ export default {
           this.$message.error(res.info);
         }
       });
-    },
-    //增加数据
-    addData() {
-      this.alert = true
     },
     //表格编辑
     tableEdit(row, index) {

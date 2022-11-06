@@ -89,17 +89,20 @@ export default {
     //       type: Number,
     //       default: null,
     //     },
+    //项目id
     projectId: {
       type: [String, Number],
       default: "",
     },
+    //文件对象信息
     uploadObj: {
       type: Object,
       default: () => {
         return {};
       },
     },
-    url: {
+    //上传路径可选
+    path: {
       type: String,
       default: "",
     },
@@ -150,19 +153,24 @@ export default {
     },
     // 0 设置路由
     setUploaduUrl() {
-      if (this.url) {
-        this.uploaduUrl =
-          process.env.VUE_APP_BASE_API_FILE + this.url
-      } else if (this.projectId) {
-        this.uploaduUrl =
-          process.env.VUE_APP_BASE_API_FILE +
-          "/v1/base/file/upload" +
-          "?folderId=" +
-          this.projectId +
-          "&taskName=" +
-          this.uploadObj.taskName;
-      }
+      // if (this.url) {
+      //   this.uploaduUrl =
+      //     process.env.VUE_APP_BASE_API_FILE + this.url
+      // } else if (this.projectId) {
+      //   this.uploaduUrl =
+      //     process.env.VUE_APP_BASE_API_FILE +
+      //     "/v1/base/file/upload" +
+      //     "?folderId=" +
+      //     this.projectId +
+      //     "&taskName=" +
+      //     this.uploadObj.taskName;
+      // }
 
+      if (this.path) {
+        this.uploaduUrl = `${process.env.VUE_APP_BASE_API_FILE}${this.path}`
+      } else if (this.projectId) {
+        this.uploaduUrl = `${process.env.VUE_APP_BASE_API_FILE}/v1/base/file/upload?folderId=${this.projectId}&taskName=${this.uploadObj.taskName}`
+      }
 
     },
     // 1 上传图片之前
@@ -214,7 +222,7 @@ export default {
         this.$message.success(res.data.fileName + "上传成功！");
 
 
-        if (this.url) {
+        if (this.path) {
           this.$emit("success", {
             taskName: this.uploadObj.taskName,
             res,

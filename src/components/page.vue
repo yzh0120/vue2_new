@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 20px;background-color: #fff;" class="ddd">
+  <div style="" class="ddd">
     <slot></slot>
   </div>
 </template>
@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.ddd {
+  // box-sizing: border-box;
+  padding: 20px;
+  background-color: #fff;
+}
 </style>

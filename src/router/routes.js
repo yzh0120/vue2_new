@@ -8,7 +8,10 @@
 let layout = () => import("@/layout/index.vue")
 
 import baseForm from "./modules/1-base-form.js"
+import vxeTable from "./modules/2-vxe-table.js"
 import fastCopy from "./modules/3-fastCopy.js"
+import fileUp from "./modules/4-fileUp.js"
+import style from "./modules/6-style.js"
 import svgIcon from "./modules/7-svgIcon.js"
 import elementUi from "./modules/11-element-ui.js"
 import {
@@ -47,8 +50,11 @@ const routes = [{
     component: () => import("@/views/login/index.vue")
   },
   baseForm, //表单
+  vxeTable,
   fastCopy,
+  style,
   svgIcon, //
+  fileUp, //
   elementUi, //
   ...status, //状态和登录页
 ]
