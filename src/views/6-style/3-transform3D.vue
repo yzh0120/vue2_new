@@ -17,7 +17,7 @@
 
 
       <div class="base_box">
-        <div class="transform3D_transform"></div>
+        <div class="transform3D_transform">rotateX(90deg)</div>
       </div>
 
       <div class="base_box">
