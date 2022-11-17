@@ -1,17 +1,18 @@
 <template>
-  <el-container class="layout-container">
+  <el-container class="one_index-container-aside-head-main">
     <!-- 侧边栏 -->
     <sidebar></sidebar>
-    <el-container class="hm-container">
+    <el-container class="one_index-container-head-main">
       <!-- 头部 -->
       <topheader></topheader>
-      <el-scrollbar ref="layoutScrollbarRef" class="layout-backtop">
+      <el-scrollbar ref="layoutScrollbarRef" class="one_index-backtop-main">
         <!-- 主体 -->
         <maincontent></maincontent>
       </el-scrollbar>
     </el-container>
-    <el-backtop target=".layout-backtop .el-scrollbar__wrap" style="background-color: rgba(64,158,255,0.8);color:#ffffff;">
-        <i class="el-icon-upload2"></i>
+    <el-backtop target=".one_index-backtop-main .el-scrollbar__wrap"
+      style="background-color: rgba(64,158,255,0.8);color:#ffffff;">
+      <i class="el-icon-upload2"></i>
     </el-backtop>
   </el-container>
 </template>
@@ -39,7 +40,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.hm-container {
+.one_index-container-head-main {
   flex-direction: column;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <el-main class="layout-main">
+  <el-main class="two_amin-main-scrollbar">
     <el-scrollbar class="layout-scrollbar" ref="layoutScrollbarRef" :style="style">
       <div ref="keepAliveContainer" class="app_main" id="app_main">
         <transition name="fade-transform" mode="out-in">
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout-container .layout-scrollbar {
+.one_index-container-aside-head-main .layout-scrollbar {
   padding: 15px;
   transition: padding 0.3s ease-in-out 0s;
 }

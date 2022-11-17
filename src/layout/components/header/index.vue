@@ -1,5 +1,5 @@
 <template>
-  <el-header :height="heigth" class="headerstyle">
+  <el-header :height="heigth" class="two_header-header-navbar-tagsView">
     <navbar></navbar>
     <tagsView v-if="needTags"></tagsView>
   </el-header>
@@ -21,12 +21,12 @@ export default {
       heigth: config.needTags ? "84px" : "50px",
     };
   },
-  created() {},
+  created() { },
 };
 </script>
 
 <style lang="scss" scoped>
-.headerstyle {
+.two_header-header-navbar-tagsView {
   display: flex;
   flex-direction: column;
   padding: 0;

@@ -1,28 +1,22 @@
 <template>
-  <div class="layout-navbars-tagsview">
+  <div class="three_tags-div-scrollbar">
     <el-scrollbar ref="scrollbarRef" @wheel.native.prevent="onHandleScroll">
-      <ul class="layout-navbars-tagsview-ul" ref="tagsUlRef">
-        <li v-for="(v, k) in tagsViewList" :key="k" class="layout-navbars-tagsview-ul-li" :data-name="v.name"
+      <ul class="three_tags-div-scrollbar-ul" ref="tagsUlRef">
+        <li v-for="(v, k) in tagsViewList" :key="k" class="three_tags-div-scrollbar-ul-li" :data-name="v.name"
           :class="{ 'is-active': v.path === tagsRoutePath }" @contextmenu.prevent="onContextmenu(v, $event)"
           @click="onTagsClick(v, k)" ref="tagsRefs">
-          <!-- <i class="layout-navbars-tagsview-ul-li-iconfont font14" :class="v.meta.icon"
-            v-if="v.path === tagsRoutePath"></i> 
-          
-            <i class="layout-navbars-tagsview-ul-li-iconfont font14 is-tagsview-icon" :class="v.meta.icon"
-            v-if="v.path !== tagsRoutePath"></i>
-          -->
-          <svgIcon :icon="v.meta.icon" className="layout-navbars-tagsview-ul-li-iconfont font14"
+          <svgIcon :icon="v.meta.icon" className="three_tags-div-scrollbar-ul-li-iconfont font14"
             v-if="v.path === tagsRoutePath"></svgIcon>
 
 
-          <svgIcon :icon="v.meta.icon" className="layout-navbars-tagsview-ul-li-iconfont font14 is-tagsview-icon"
+          <svgIcon :icon="v.meta.icon" className="three_tags-div-scrollbar-ul-li-iconfont font14 is-tagsview-icon"
             v-if="v.path !== tagsRoutePath"></svgIcon>
 
 
           <span>{{ v.meta.title }}</span>
-          <i class="el-icon-refresh-right layout-navbars-tagsview-ul-li-icon ml5" v-if="v.path === tagsRoutePath"
+          <i class="el-icon-refresh-right three_tags-div-scrollbar-ul-li-icon ml5" v-if="v.path === tagsRoutePath"
             @click.stop="_refreshCurrentTagsView(v)"></i>
-          <i class="el-icon-close layout-navbars-tagsview-ul-li-icon ml5" v-if="!v.meta.isAffix"
+          <i class="el-icon-close three_tags-div-scrollbar-ul-li-icon ml5" v-if="!v.meta.isAffix"
             @click.stop="_closeCurrentTagsView(v)"></i>
         </li>
       </ul>
@@ -270,7 +264,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout-navbars-tagsview {
+.three_tags-div-scrollbar {
   flex: 1;
   background-color: var(--bg-topBar);
   border-bottom: 1px solid #f1f2f3;
