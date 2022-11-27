@@ -155,10 +155,10 @@ export default {
     setUploaduUrl() {
       // if (this.url) {
       //   this.uploaduUrl =
-      //     process.env.VUE_APP_BASE_API_FILE + this.url
+      //     process.env.VUE_APP_BASE_API + this.url
       // } else if (this.projectId) {
       //   this.uploaduUrl =
-      //     process.env.VUE_APP_BASE_API_FILE +
+      //     process.env.VUE_APP_BASE_API +
       //     "/v1/base/file/upload" +
       //     "?folderId=" +
       //     this.projectId +
@@ -167,9 +167,9 @@ export default {
       // }
 
       if (this.path) {
-        this.uploaduUrl = `${process.env.VUE_APP_BASE_API_FILE}${this.path}`
+        this.uploaduUrl = `${process.env.VUE_APP_BASE_API}${this.path}`
       } else if (this.projectId) {
-        this.uploaduUrl = `${process.env.VUE_APP_BASE_API_FILE}/v1/base/file/upload?folderId=${this.projectId}&taskName=${this.uploadObj.taskName}`
+        this.uploaduUrl = `${process.env.VUE_APP_BASE_API}/v1/base/file/upload?folderId=${this.projectId}&taskName=${this.uploadObj.taskName}`
       }
 
     },

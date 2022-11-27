@@ -46,10 +46,10 @@ export function look(params = {}) {
  */
 
 export function download(path, params = {}, baseUrl = "") {
-  let baseURL = baseUrl || process.env.VUE_APP_BASE_API_FILE; //实际使用需要修改
+  let baseURL = baseUrl || process.env.VUE_APP_BASE_API; //实际使用需要修改
   let headers = {
-    // 'Authorization': "Bearer " + getCookie("token")
-    'Authorization': getCookie("fileToken") //实际使用需要修改  还有axiosFileRequest.js 完全可以不需要
+    'Authorization': "Bearer " + getCookie("token")
+    // 'Authorization': getCookie("fileToken") //实际使用需要修改  还有axiosFileRequest.js 完全可以不需要
   }
 
   // let url = type
