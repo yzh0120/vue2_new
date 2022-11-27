@@ -52,8 +52,8 @@ Vue.use(VXETable)
 import baseFormMixin from "@/mixins/baseForm";
 Vue.mixin(baseFormMixin)
 //按钮权限
-import btn from "@/mixins/btn.js";
-Vue.mixin(btn)
+// import btn from "@/mixins/btn.js";
+// Vue.mixin(btn)
 
 /** 自定义组件 *******************************************************************************************************/
 import baseForm from '@/components/base-form/index'

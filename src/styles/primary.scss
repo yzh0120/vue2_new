@@ -12,12 +12,12 @@ $activeTextColor: #ffffff;//菜单选中的字体颜色
 $hoverColor: #409eff;//鼠标移上去的字体颜色
 $activeBgColor: #409eff;//菜单选中的背景颜色
 
-
+//侧边栏样式
 .two_aside-div {
 	background-color: $menuBg !important; //侧边栏背景色
 }
+//样式权重最低的子叶菜单样式  会被非一级的某行菜单栏(.el-submenu .el-menu-item)的样式覆盖
 .el-menu-item {
-	//权重最低的 子叶选项会被非一级的某行菜单栏 样式覆盖
 	background-color: $menuBg !important; //背景颜色
 	color: $textcolor; // 默认字体颜色
 
@@ -28,8 +28,8 @@ $activeBgColor: #409eff;//菜单选中的背景颜色
 		}
 	}
 }
+//样式权重最低的母目录样式
 .el-submenu__title {
-	//权重最低的 母目录
 	background-color: $menuBg !important; //背景颜色
 	color: $textcolor; // 默认字体颜色
 
@@ -40,9 +40,9 @@ $activeBgColor: #409eff;//菜单选中的背景颜色
 		}
 	}
 }
-
+//非一级的子叶菜单栏样式
 .el-submenu .el-menu-item {
-	//非一级的某行菜单栏
+	
 	background-color: $submenuBg !important; //背景色
 
 	&:hover {
@@ -52,20 +52,19 @@ $activeBgColor: #409eff;//菜单选中的背景颜色
 		}
 	}
 }
-
+	// 某行激活的子叶菜单栏样式            多选择器是为了权重
 .el-menu li.is-active.el-menu-item {
-	// 某行激活的菜单栏            多选择器是为了权重
+
 	color: $activeTextColor !important; // 字体激活颜色
-	background-color: $activeBgColor !important; // 背景激活颜色
+	background-color: red !important; // 背景激活颜色
 	&:hover {
 		i {
 			color: $activeTextColor !important; //字体颜色
 		}
 	}
 }
-
+//当点击了子叶菜单时的母展开菜单样式
 .is-active > .el-submenu__title {
-	//当点击了子菜单时的父菜单
 	color: $activeTextColor !important; //的文本颜色
 	i {
 		color: $activeTextColor !important;

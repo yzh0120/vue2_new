@@ -5,7 +5,7 @@
  * @FilePath: \oaweb\src\api\file.js
  * 
  */
-import oarequest from "@/utils/axiosFileRequest";
+import oarequest from "@/utils/axiosHttp";
 import axios from 'axios';
 import {
   getCookie
